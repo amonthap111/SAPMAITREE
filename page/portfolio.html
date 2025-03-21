@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAMMAITREE</title>
+    <link rel="stylesheet" href="../assents/css/nav-foot.css">
+    <link rel="stylesheet" href="../assents/css/default.css">
+    <link rel="stylesheet" href="../assents/css/portfolio.css">
+
+    <script src="../assents/js/portfolio.js"></script>
+    
+    
+</head>
+<body>
+    <div class="container-nav">
+    <nav class="navbar">
+        
+        <div class="logo">SAPMAITREE SRIPAKPRAK</div>
+        <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+        <ul class="menu" id="menu">
+            <li><a href="../index.html">หน้าหลัก</a></li>
+            <li><a href="portfolio.html">ผลงาน</a></li>
+            <li><a href="Service.html">บริการ</a></li>
+            <li><a href="About.html">เกี่ยวกับเรา</a></li>
+            <li><a href="#">ภาษา ▼</a></li>
+        </ul>
+        
+    </nav>
+</div>
+    <script>
+        function toggleMenu() {
+            document.getElementById('menu').classList.toggle('show');
+        }
+    </script>
+
+้<h3 class="txt-header">ผลงานทั้งหมด</h3>
+<div class="fiiter-conteiner">
+    <label for="filter" class="fiiter-txt">กรองตามมูลค่า: </label>
+    <select id="filter" class="fiiter-btn">
+        <option value="low-to-high">มูลค่าต่ำไปสูง</option>
+        <option value="high-to-low">มูลค่าสูงไปต่ำ</option>
+    </select>
+</div>
+
+<div class="container" id="project-container">
+    <!-- การ์ดจะถูกแทรกที่นี่โดย JavaScript -->
+</div>
+<script>
+    // ข้อมูลโปรเจ็ค
+    const projects = [
+    { img: '../assents/IMG/all-img/2.jpg', title: 'PROJECT002', value: 55000 },
+    { img: '../assents/IMG/all-img/4.jpg', title: 'PROJECT004', value: 65000 },
+    { img: '../assents/IMG/all-img/5.jpg', title: 'PROJECT005', value: 70000 },
+    { img: '../assents/IMG/all-img/8.jpg', title: 'PROJECT008', value: 85000 },
+    { img: '../assents/IMG/all-img/9.jpg', title: 'PROJECT009', value: 90000 },
+    { img: '../assents/IMG/all-img/13.jpg', title: 'PROJECT013', value: 110000 },
+    { img: '../assents/IMG/all-img/18.jpg', title: 'PROJECT018', value: 135000 },
+    { img: '../assents/IMG/all-img/20.jpg', title: 'PROJECT020', value: 145000 },
+    { img: '../assents/IMG/all-img/21.jpg', title: 'PROJECT021', value: 150000 },
+    { img: '../assents/IMG/all-img/26.jpg', title: 'PROJECT026', value: 175000 },
+    { img: '../assents/IMG/all-img/30.jpg', title: 'PROJECT030', value: 195000 },
+    { img: '../assents/IMG/all-img/31.jpg', title: 'PROJECT031', value: 200000 },
+    { img: '../assents/IMG/all-img/32.jpg', title: 'PROJECT032', value: 210000 },
+    { img: '../assents/IMG/all-img/34.jpg', title: 'PROJECT034', value: 230000 },
+    { img: '../assents/IMG/all-img/36.jpg', title: 'PROJECT036', value: 250000 },
+    { img: '../assents/IMG/all-img/37.jpg', title: 'PROJECT037', value: 260000 },
+    { img: '../assents/IMG/all-img/41.jpg', title: 'PROJECT041', value: 300000 },
+    { img: '../assents/IMG/all-img/42.jpg', title: 'PROJECT042', value: 310000 },
+    { img: '../assents/IMG/all-img/43.jpg', title: 'PROJECT043', value: 320000 },
+    { img: '../assents/IMG/all-img/44.jpg', title: 'PROJECT044', value: 330000 },
+    { img: '../assents/IMG/all-img/46.jpg', title: 'PROJECT046', value: 350000 },
+    { img: '../assents/IMG/all-img/47.jpg', title: 'PROJECT047', value: 360000 },
+    { img: '../assents/IMG/all-img/48.jpg', title: 'PROJECT048', value: 370000 },
+    { img: '../assents/IMG/all-img/49.jpg', title: 'PROJECT049', value: 380000 },
+    { img: '../assents/IMG/all-img/50.jpg', title: 'PROJECT050', value: 390000 }
+];
+
+
+
+    // เลือก container ที่ต้องการแสดงการ์ด
+    const container = document.getElementById('project-container');
+    const filterSelect = document.getElementById('filter');
+
+    // ฟังก์ชันที่ใช้ในการแสดงการ์ด
+    function displayProjects(projects) {
+        // ลบการ์ดเก่าก่อนแสดงการ์ดใหม่
+        container.innerHTML = '';
+
+        // วนลูปสร้างการ์ดจากข้อมูลโปรเจ็ค
+        projects.forEach(project => {
+            const card = document.createElement('div');
+            card.classList.add('card');
+            card.innerHTML = `
+                <img src="${project.img}" alt="Project Image">
+                <div class="card-content">
+                    <div class="card-title">${project.title}</div>
+                    <div class="card-value">มูลค่า: ${project.value.toLocaleString()} บาท</div>
+                </div>
+            `;
+            container.appendChild(card);
+        });
+    }
+
+    // ฟังก์ชันที่ใช้ในการจัดเรียงโปรเจ็คตามมูลค่า
+    function filterProjects() {
+        const filterValue = filterSelect.value;
+
+        let sortedProjects;
+        if (filterValue === 'low-to-high') {
+            sortedProjects = [...projects].sort((a, b) => a.value - b.value);  // จัดเรียงจากมูลค่าต่ำไปสูง
+        } else if (filterValue === 'high-to-low') {
+            sortedProjects = [...projects].sort((a, b) => b.value - a.value);  // จัดเรียงจากมูลค่าสูงไปต่ำ
+        }
+
+        displayProjects(sortedProjects); // แสดงโปรเจ็คที่จัดเรียงแล้ว
+    }
+
+    // เรียกใช้ฟังก์ชันการกรองเมื่อเปลี่ยนตัวเลือก
+    filterSelect.addEventListener('change', filterProjects);
+
+    // เริ่มต้นแสดงโปรเจ็คเมื่อโหลดหน้าเว็บ
+    displayProjects(projects);
+</script>
+
+        
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>เกี่ยวกับเรา</h3>
+                <p>เราคือบริษัทผู้รับเหมาก่อสร้างที่มีประสบการณ์ยาวนานในวงการ...</p>
+            </div>
+            <div class="footer-section">
+                <h3>บริการของเรา</h3>
+                <ul>
+                    <li><a href="https://web.facebook.com/mitri.sri.pak.ph.rk">รับเหมาก่อสร้างบ้าน</a></li>
+                    <li><a href="https://web.facebook.com/mitri.sri.pak.ph.rk">รับเหมาก่อสร้างอาคาร</a></li>
+                    <li><a href="https://web.facebook.com/mitri.sri.pak.ph.rk">บริการออกแบบและวางแผน</a></li>
+                    <li><a href="https://web.facebook.com/mitri.sri.pak.ph.rk">บริการซ่อมแซมและปรับปรุง</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>ติดต่อเรา</h3>
+                <p>ที่อยู่: 17/8 ซ.สะปำ อ.เกาะแก้ว จ. ภูเก็ต</p>
+                <p>โทรศัพท์: 0980943104</p>
+                <p>อีเมล: pa.panya7382@gamil.com</p>
+            </div>
+            <div class="footer-section">
+                <h3>ติดตามเรา</h3>
+                <ul class="social-links">
+                    <li><a href="https://web.facebook.com/mitri.sri.pak.ph.rk">Facebook</a></li>
+                    <li><a href="#">Line</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="tel:0994788751">Call</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 SAPMAITREE SRIPAKPRAK. All rights reserved.</p>
+        </div>
+    </footer>
+    
+</body>
+</html>

@@ -1,0 +1,112 @@
+/* Footer container */
+footer {
+    background: linear-gradient(to right, #263238, #455A64); /* Gradient background */
+    color: #fff;
+    padding: 40px 0;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    flex-wrap: wrap;
+}
+
+.footer-section {
+    flex: 1;
+    margin: 10px;
+    max-width: 25%;
+}
+
+.footer-section h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #fff;
+    font-weight: bold;
+}
+
+.footer-section p {
+    font-size: 0.9em;
+    color: #ddd;
+    line-height: 1.5;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin: 10px 0;
+}
+
+.footer-section ul li a {
+    color: #bbb;
+    text-decoration: none;
+}
+
+.footer-section ul li a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.social-links {
+    list-style: none;
+    padding: 0;
+    display: flex;
+}
+
+.social-links li {
+    margin-right: 15px;
+}
+
+.social-links li a {
+    color: #bbb;
+    text-decoration: none;
+}
+
+.social-links li a:hover {
+    color: #fff;
+}
+
+/* Footer bottom section */
+.footer-bottom {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #263238; /* Darker background for footer bottom */
+}
+
+.footer-bottom p {
+    margin: 0;
+    color: #fff;
+    font-size: 0.9em;
+}
+@media (max-width: 1200px) {
+    .footer-section {
+        max-width: 33%; /* Adjust for medium screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-section {
+        max-width: 50%; /* Adjust for small screens */
+    }
+
+    .footer-container {
+        padding: 0 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-section {
+        max-width: 100%; /* Stack sections on top of each other on very small screens */
+    }
+
+    .social-links {
+        justify-content: center; /* Center social icons */
+    }
+
+    .footer-bottom p {
+        font-size: 0.8em; /* Adjust text size for small screens */
+    }
+}

@@ -1,0 +1,39 @@
+.services {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    padding: 50px;
+    background: linear-gradient(to right, #263238, #455A64);
+    margin-bottom: 100px;
+}
+
+.service-item {
+    text-align: center;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 600;
+    font-family: 'Sarabun'
+}
+
+.service-item img {
+    margin-bottom: 20px;
+    width: 120px;
+    height: 120px;
+    transition: all 0.3s;
+}
+.service-item img:hover{
+    transform: scale(1.1);
+}
+@media (max-width: 790px) {
+    .services {
+        display:block;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+        padding: 50px;
+        background: linear-gradient(to right, #263238, #455A64);
+    }
+   
+}
+

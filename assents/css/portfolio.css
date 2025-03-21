@@ -1,0 +1,89 @@
+/* styles.css */
+
+/* กำหนดลักษณะการแสดงผลของ container */
+.container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 คอลัมน์ในแต่ละแถว */
+    gap: 20px; /* ระยะห่างระหว่าง card */
+    padding: 20px;
+}
+
+/* กำหนดลักษณะการแสดงผลของแต่ละ card */
+.card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+}
+
+/* กำหนดรูปภาพให้เต็มขนาดของ card */
+.card img {
+    width: 100%;
+    height: 250px; /* ความสูงที่ต้องการ */
+    object-fit: cover; /* ใช้เพื่อให้รูปภาพครอบคลุมเต็มพื้นที่ */
+    object-position: center; /* ตั้งตำแหน่งของรูปภาพให้อยู่ตรงกลาง */
+}
+
+/* กำหนดลักษณะของเนื้อหาใน card */
+.card-content {
+    padding: 16px;
+}
+
+/* กำหนดลักษณะชื่อโปรเจ็ค */
+.card-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+/* กำหนดลักษณะของมูลค่าโปรเจ็ค */
+.card-value {
+    font-size: 18px;
+    color: #ff5733;
+    font-weight: bold;
+}
+
+.fiiter-conteiner{
+    text-align: center;
+}
+.txt-header {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 48px;
+    color: #263238;
+}
+.fiiter-txt {
+    margin-right: 30px;
+    font-weight: 700;
+    color: #190835;
+    
+}
+.fiiter-btn {
+    background-color: #ddd;
+    border-radius: 30px;
+    padding: 3px 6px;
+    
+}
+@media (max-width: 768px) {
+    .container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); 
+       
+    }
+    .card img {
+        width: 100%;
+        height: 150px; /* ความสูงที่ต้องการ */
+     
+    }
+    .card-title {
+        font-size: 13px;
+        font-weight: bold;
+        margin-bottom: 8px;
+    }
+    .card-value {
+        font-size: 14px;
+        color: #ff5733;
+        font-weight: bold;
+    }
+}
